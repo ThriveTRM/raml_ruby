@@ -74,7 +74,7 @@ module Raml
   # @raise [RamlError] if the RAML is invalid.
   def self.parse_file(filepath)
     file = File.new filepath
-    raise UnsupportedRamlVersion unless file.readline =~ /\A#%RAML 0.8\s*\z/
+    raise UnsupportedRamlVersion unless file.readline =~ /\A#%RAML (0.8|1.0)\s*\z/
 
     path = File.dirname filepath
     path = nil if path == ''
